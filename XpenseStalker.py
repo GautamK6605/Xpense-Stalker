@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import os
+import datetime
 
 
 st.title("XpenseStalker")
 csv_path = "expenses.csv"
 columns = ["Date", "Grocery", "Shopping", "Bills", "Personal", "Total"]
 categories = ["Grocery", "Shopping", "Bills", "Personal"]
+today = datetime.date.today
 
 
 if not os.path.exists(csv_path) or os.path.getsize(csv_path) == 0:
