@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import os
+
+
 st.title("XpenseStalker")
 csv_path = "expenses.csv"
 columns = ["Date", "Grocery", "Shopping", "Bills", "Personal", "Total"]
@@ -45,7 +47,7 @@ chart_type = st.radio(
 )
 
 if chart_type == "Category Breakdown for a Date":
-    selected_date = st.selectbox("Select date to display", options=df["Date"].unique())
+    selected_date = st.date_input("Select date to display", value=today)
     data_for_chart = df[df["Date"] == selected_date]
     df_long = data_for_chart.melt(
         id_vars=["Date"], value_vars=categories,
