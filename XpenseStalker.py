@@ -9,7 +9,7 @@ st.title("XpenseStalker")
 csv_path = "expenses.csv"
 columns = ["Date", "Grocery", "Shopping", "Bills", "Personal", "Total"]
 categories = ["Grocery", "Shopping", "Bills", "Personal"]
-today = datetime.date.today
+today = datetime.date.today()
 
 
 if not os.path.exists(csv_path) or os.path.getsize(csv_path) == 0:
@@ -49,7 +49,7 @@ chart_type = st.radio(
 )
 
 if chart_type == "Category Breakdown for a Date":
-    selected_date = st.date_input("Select date to display", value=today)
+    selected_date = st.date_input("Select date to display", value=today_str)
     data_for_chart = df[df["Date"] == selected_date]
     df_long = data_for_chart.melt(
         id_vars=["Date"], value_vars=categories,
