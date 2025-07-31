@@ -50,7 +50,8 @@ chart_type = st.radio(
 
 if chart_type == "Category Breakdown for a Date":
     selected_date = st.date_input("Select date to display", value=today)
-    data_for_chart = df[df["Date"] == selected_date]
+    selected_date_str = selected_date.isoformat()
+    data_for_chart = df[df["Date"] == selected_date_str]
     df_long = data_for_chart.melt(
         id_vars=["Date"], value_vars=categories,
         var_name="Category", value_name="Amount"
