@@ -4,6 +4,7 @@ import altair as alt
 import os
 import datetime
 
+st.warning("Under development")
 
 st.title("XpenseStalker")
 csv_path = "expenses.csv"
